@@ -1,0 +1,40 @@
+﻿<Window x:Class="Homework10._8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Homework10._8"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800" ResizeMode="NoResize">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="387*"/>
+            <ColumnDefinition Width="142*"/>
+            <ColumnDefinition Width="245*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="ListBox_Clients" Margin="10,10,10,57" FontSize="14" SelectionChanged="ListBox_Clients_SelectionChanged" SelectionMode="Single"/>
+        <Label Grid.Column="1" Content="Фамилия:" Margin="5,10,5,0" VerticalAlignment="Top" Height="20" FontSize="14" Padding="0" />
+        <Label Grid.Column="1" Content="Имя:" Margin="5,35,5,0" VerticalAlignment="Top" Height="20" FontSize="14" Padding="0" />
+        <Label Grid.Column="1" Content="Отчество:" Margin="5,60,5,0" VerticalAlignment="Top" Height="20" FontSize="14" Padding="0" />
+        <Label Grid.Column="1" Content="Телефон:" Margin="5,110,5,0" VerticalAlignment="Top" Height="20" FontSize="14" Padding="0" />
+        <Label Grid.Column="1" Content="Номер паспорта:" Margin="5,85,5,0" VerticalAlignment="Top" Height="20" FontSize="14" Padding="0" />
+
+
+        <TextBox x:Name="TextBoxClientLastName" Grid.Column="2" Margin="5,10,5,0" TextWrapping="NoWrap" VerticalAlignment="Top" Height="20" FontSize="12"/>
+        <TextBox x:Name="TextBoxClientFirstName" Grid.Column="2" Margin="5,35,5,0" TextWrapping="NoWrap" VerticalAlignment="Top" Height="20" FontSize="12"/>
+        <TextBox x:Name="TextBoxClientFatherName" Grid.Column="2" Margin="5,60,5,0" TextWrapping="NoWrap" VerticalAlignment="Top" Height="20" FontSize="12"/>
+        <TextBox x:Name="TextBoxClientPassport" Grid.Column="2" Margin="5,85,5,0" TextWrapping="NoWrap" VerticalAlignment="Top" Height="20" FontSize="12"/>
+        <TextBox x:Name="TextBoxClientPhoneNumber" Grid.Column="2" Margin="5,110,5,0" TextWrapping="NoWrap" VerticalAlignment="Top" Height="20" FontSize="12"/>
+        <TextBlock x:Name="TextBlockClientUpdateLog" Grid.Column="2" Margin="5,140,5,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="297" FontSize="14" Padding="5" />
+        <Button x:Name="Button_SaveClientInfo" Grid.Column="2" Content="Сохранить изменения" Margin="10" VerticalAlignment="Bottom" Height="32" Click="Button_SaveClientInfo_Click"/>
+        <Button x:Name="Button_AddNewClient" Content="Добавить нового клиента" Margin="10" VerticalAlignment="Bottom" Height="32" Click="Button_AddNewClient_Click"/>
+
+
+
+    </Grid>
+
+</Window>
