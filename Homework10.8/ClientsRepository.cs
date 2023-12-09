@@ -18,13 +18,9 @@ namespace Homework10._8
         private List<Client> clients;
 
         // для теста записи
-
         //private string updatedDatabasePath = "updatedClientsList.json";
+        public ClientsRepository() : this("clientsList.json") {}
 
-
-        public ClientsRepository() : this("clientsList.json")
-        {                                  
-        }
         public ClientsRepository(string databasePath)
         {
             this.databasePath = databasePath; // путь до JSON файла с клиентами
@@ -54,6 +50,18 @@ namespace Homework10._8
             else clients[clientPosition] = updatedClientInfo;
             clients[clientPosition].LastUpdateInfoSet(updatedBy, updatedData, updateType);
             UpdateClientBaseFile();
+        }
+
+        public string DeleteClientFromBaseFile(int clientPosition)
+        {
+            string clientFullName = clients[clientPosition].GetFullName();
+            bool deleted = clients.Remove(clients[clientPosition]);
+            if (deleted)
+            {
+                UpdateClientBaseFile();
+                return $"Клиент {clientFullName} удален из базы.";
+            }
+            else return "Клиент не найден в базе.";
         }
 
         /// <summary>

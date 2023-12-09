@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Homework10._8
 {
-    internal class Manager : IReadUser, IUpdateUser
+    internal class Manager : IReadUser, IUpdateUser, IDeleteUser
     {
         public Manager() { }
                 
@@ -44,8 +44,7 @@ namespace Homework10._8
         }
 
         public void UpdateClientData(ClientsRepository repository, Client updatedClient, int clientPosition)
-        {
-            
+        {            
             string fieldsUpdated = "";
             string updatesType = "";
             string tempUpdateType;
@@ -95,8 +94,6 @@ namespace Homework10._8
                 updatesType = "added";
                 clientPosition = repository.GetBaseSize();
             }
-
-
             repository.UpdateClientInfo(updatedClient, clientPosition, "Manager", fieldsUpdated, updatesType);
         }
 
@@ -112,6 +109,11 @@ namespace Homework10._8
                 else updateType = "updated;"; // если в новой записи что-то есть - значит обновили
             }
             return updateType;
+        }
+
+        public string DeleteClientFromBase(ClientsRepository repository, int clientPosition)
+        {
+            return repository.DeleteClientFromBaseFile(clientPosition);
         }
     }
 }

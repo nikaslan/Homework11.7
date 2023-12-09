@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homework10._8"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800" ResizeMode="NoResize">
+        Title="База клиентов" Height="500" Width="800" ResizeMode="NoResize">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -29,7 +29,8 @@
         <TextBox x:Name="TextBoxClientFatherName" Grid.Column="2" Margin="5,60,5,0" TextWrapping="NoWrap" VerticalAlignment="Top" Height="20" FontSize="12"/>
         <TextBox x:Name="TextBoxClientPassport" Grid.Column="2" Margin="5,85,5,0" TextWrapping="NoWrap" VerticalAlignment="Top" Height="20" FontSize="12"/>
         <TextBox x:Name="TextBoxClientPhoneNumber" Grid.Column="2" Margin="5,110,5,0" TextWrapping="NoWrap" VerticalAlignment="Top" Height="20" FontSize="12"/>
-        <TextBlock x:Name="TextBlockClientUpdateLog" Grid.Column="2" Margin="5,140,5,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="297" FontSize="14" Padding="5" />
+        <TextBlock x:Name="TextBlockClientUpdateLog" Grid.Column="2" Margin="5,177,5,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="260" FontSize="14" Padding="5" />
+        <Button x:Name="Button_DeleteClientInfo" Grid.Column="2" Content="Удалить" Margin="126,140,5,0" VerticalAlignment="Top" Height="32" Click="Button_DeleteClientInfo_Click"/>
         <Button x:Name="Button_SaveClientInfo" Grid.Column="2" Content="Сохранить изменения" Margin="10" VerticalAlignment="Bottom" Height="32" Click="Button_SaveClientInfo_Click"/>
         <Button x:Name="Button_AddNewClient" Content="Добавить нового клиента" Margin="10" VerticalAlignment="Bottom" Height="32" Click="Button_AddNewClient_Click"/>
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Homework10._8
 {
-    internal class Consultant : IReadUser, IUpdateUser
+    internal class Consultant : IReadUser, IUpdateUser, IDeleteUser
     {
         public Consultant() { }
         
@@ -69,5 +69,9 @@ namespace Homework10._8
             return updateType;
         }
 
+        public string DeleteClientFromBase(ClientsRepository repository, int clientPosition)
+        {
+            return "У вас нет прав на удаление клиентов из базы.";
+        }
     }
 }

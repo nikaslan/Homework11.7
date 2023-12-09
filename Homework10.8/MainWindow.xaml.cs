@@ -23,6 +23,7 @@ namespace Homework10._8
 
         IReadUser userReader;
         IUpdateUser userUpdater;
+        IDeleteUser userDeleter;
         ClientsRepository clientBase;
 
         public MainWindow(int userRole)
@@ -35,11 +36,13 @@ namespace Homework10._8
             { 
                 userReader = new Consultant();
                 userUpdater = new Consultant();
+                userDeleter = new Consultant();
             }
             if (userRole == 2)
             {
                 userReader = new Manager();
                 userUpdater = new Manager();
+                userDeleter = new Manager();
             }
 
             TextBoxClientAccess(userReader.GetClientDataEditAccess());
@@ -106,8 +109,7 @@ namespace Homework10._8
         private void Button_SaveClientInfo_Click(object sender, RoutedEventArgs e)
         {
             int clientSelected = ListBox_Clients.SelectedIndex;
-            UpdateClientInfo(clientSelected);            
-            Console.WriteLine("Client Save button clicked");
+            UpdateClientInfo(clientSelected);
         }
 
         /// <summary>
@@ -131,7 +133,6 @@ namespace Homework10._8
                 clientDataVerificationResults["PhoneNumber"],clientDataVerificationResults["Passport"]);
 
             userUpdater.UpdateClientData(clientBase, updatedClient, clientSelected);
-            Console.WriteLine("UpdateClientInfo initiated");
             // Если не было выделено клиентов в списке, значит добавлен новый клиент и мы читаем его из конца базы
             if (clientSelected == -1) clientSelected = ListBox_Clients.Items.Count;
             
@@ -204,7 +205,18 @@ namespace Homework10._8
             TextBoxClientPassport.Text = "";
             TextBlockClientUpdateLog.Text = "Введите данные нового клиента и нажмите сохранить.";
             TextBoxClientFirstName.Focus();
-            Console.WriteLine("adding new client");
+        }
+
+        private void Button_DeleteClientInfo_Click(object sender, RoutedEventArgs e)
+        {
+            int clientSelected = ListBox_Clients.SelectedIndex;
+            if (clientSelected == -1)
+            {
+                TextBlockClientUpdateLog.Text = "Выберите клиента для удаления.";
+                return;
+            }
+            MessageBox.Show(userDeleter.DeleteClientFromBase(clientBase,clientSelected));
+            ClientsLoad();
         }
     }
 }
